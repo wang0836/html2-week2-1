@@ -4,13 +4,7 @@ var moveTime = 3200;
 var blockPos = -1;
 var block = 1;
 
-$(document).ready(function(){
-	//make the background...
-	/*var block = $(".bg-block");
-	for(var i=0;i<55;i++){
-		$(block).clone().appendTo("#background");	
-	}*/
-	
+$(document).ready(function(){	
 	//animate the first block... (or call a function to do so, and pass it a time)
 	animateRight(1);
 
@@ -21,12 +15,12 @@ $(document).ready(function(){
 			//stop the animation!
 			$(".active").stop();		
 			//subtract an amount from the time...
-			moveTime -= 400;
+			moveTime = Math.floor(moveTime/1.4);
 			
 			if(blockPos > -1){
 				//if pos is greater than -1, check to see if the stack is proper...
 				if($(".active").position().left > (blockPos-40) && $(".active").position().left < (blockPos+40)){
-					if(moveTime == 0){
+					if(block == 8){
 						//if this was the last row, call the you win function
 						youWin();
 					}else{
@@ -69,15 +63,11 @@ function animateLeft(t){
 function nextRow(){
 	//get the position of the last block, and chart it in blockPos
 	blockPos = $(".active").position().left;
-	
-	
-	//make a copy of the object
-	//var rowCopy = $(".active").clone();
-
 	//remove the active class from the current penguin
 	$(".active").removeClass("active");
 	//count to the next block
 	block++;
+	
 	//generate the target
 	var tt = "#game img:nth-child(" + block + ")";
 	var newBlock = $(tt);
