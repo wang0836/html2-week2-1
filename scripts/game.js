@@ -10,8 +10,8 @@ $(document).ready(function(){
 
 	$("body").focus();
 	$("body").keypress(function(event) {
-		//alert(event.which);   ...space reports as 32
-			if(event.which == 32){
+		//console.log(event.which);   ...s reports as 115
+		if(event.which == 115){
 			//stop the animation!
 			$(".active").stop();		
 			//subtract an amount from the time...
