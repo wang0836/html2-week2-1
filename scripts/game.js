@@ -42,7 +42,6 @@ $(document).ready(function(){
 
 //this animates a block right...
 function animateRight(t){
-	console.log(t);
 	//then, animate the block
 	$(".active").animate({'left':'360px'}, moveTime*t, 'linear', function(){
 		//once the animation is finished, call to animated it back
@@ -52,7 +51,6 @@ function animateRight(t){
 
 //this animates a block left...
 function animateLeft(t){
-	console.log(t);
 	$(".active").animate({'left':'0'}, moveTime*t, 'linear', function(){
 		//once the animation is finished, call to animated it back
 		animateRight(1);
